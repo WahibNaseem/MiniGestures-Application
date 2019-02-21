@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Mini App</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col text-center col-12>
+        <h3>Enter the right code</h3>
+        <p *ngIf="!didWin()">Tap twice , press four time</p>
+        <p *ngIf="didWin()">You won!</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-item>Tapped: {{ tap }}</ion-item>
+          <ion-item>Pressed: {{ press}}</ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+      <app-reset (didReset)="onDidReset($event)"></app-reset>
+
+      <ion-row>
+        <ion-col><button ion-button small block color="secondary" (tap)="onTap()">Tap here</button></ion-col>
+        <ion-col><button ion-button small block color="secondary" (press)="onPress()">Press here</button></ion-col>
+      </ion-row>
+
+
+  </ion-grid>
+</ion-content>
